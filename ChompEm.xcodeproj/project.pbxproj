@@ -1,0 +1,434 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D46CDD1C1B4AE8B10085E403 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46CDD1B1B4AE8B10085E403 /* AppDelegate.swift */; };
+		D46CDD1E1B4AE8B10085E403 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D46CDD1D1B4AE8B10085E403 /* GameScene.sks */; };
+		D46CDD201B4AE8B10085E403 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46CDD1F1B4AE8B10085E403 /* GameScene.swift */; };
+		D46CDD221B4AE8B10085E403 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46CDD211B4AE8B10085E403 /* GameViewController.swift */; };
+		D46CDD251B4AE8B10085E403 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D46CDD231B4AE8B10085E403 /* Main.storyboard */; };
+		D46CDD271B4AE8B10085E403 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D46CDD261B4AE8B10085E403 /* Images.xcassets */; };
+		D46CDD2A1B4AE8B10085E403 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D46CDD281B4AE8B10085E403 /* LaunchScreen.xib */; };
+		D46CDD361B4AE8B10085E403 /* ChompEmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46CDD351B4AE8B10085E403 /* ChompEmTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D46CDD301B4AE8B10085E403 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D46CDD0E1B4AE8B10085E403 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D46CDD151B4AE8B10085E403;
+			remoteInfo = ChompEm;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D46CDD161B4AE8B10085E403 /* ChompEm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChompEm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D46CDD1A1B4AE8B10085E403 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D46CDD1B1B4AE8B10085E403 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D46CDD1D1B4AE8B10085E403 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		D46CDD1F1B4AE8B10085E403 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		D46CDD211B4AE8B10085E403 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		D46CDD241B4AE8B10085E403 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D46CDD261B4AE8B10085E403 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D46CDD291B4AE8B10085E403 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		D46CDD2F1B4AE8B10085E403 /* ChompEmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChompEmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D46CDD341B4AE8B10085E403 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D46CDD351B4AE8B10085E403 /* ChompEmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChompEmTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D46CDD131B4AE8B10085E403 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D46CDD2C1B4AE8B10085E403 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D46CDD0D1B4AE8B10085E403 = {
+			isa = PBXGroup;
+			children = (
+				D46CDD181B4AE8B10085E403 /* ChompEm */,
+				D46CDD321B4AE8B10085E403 /* ChompEmTests */,
+				D46CDD171B4AE8B10085E403 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D46CDD171B4AE8B10085E403 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D46CDD161B4AE8B10085E403 /* ChompEm.app */,
+				D46CDD2F1B4AE8B10085E403 /* ChompEmTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D46CDD181B4AE8B10085E403 /* ChompEm */ = {
+			isa = PBXGroup;
+			children = (
+				D46CDD1B1B4AE8B10085E403 /* AppDelegate.swift */,
+				D46CDD1D1B4AE8B10085E403 /* GameScene.sks */,
+				D46CDD1F1B4AE8B10085E403 /* GameScene.swift */,
+				D46CDD211B4AE8B10085E403 /* GameViewController.swift */,
+				D46CDD231B4AE8B10085E403 /* Main.storyboard */,
+				D46CDD261B4AE8B10085E403 /* Images.xcassets */,
+				D46CDD281B4AE8B10085E403 /* LaunchScreen.xib */,
+				D46CDD191B4AE8B10085E403 /* Supporting Files */,
+			);
+			path = ChompEm;
+			sourceTree = "<group>";
+		};
+		D46CDD191B4AE8B10085E403 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D46CDD1A1B4AE8B10085E403 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D46CDD321B4AE8B10085E403 /* ChompEmTests */ = {
+			isa = PBXGroup;
+			children = (
+				D46CDD351B4AE8B10085E403 /* ChompEmTests.swift */,
+				D46CDD331B4AE8B10085E403 /* Supporting Files */,
+			);
+			path = ChompEmTests;
+			sourceTree = "<group>";
+		};
+		D46CDD331B4AE8B10085E403 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D46CDD341B4AE8B10085E403 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D46CDD151B4AE8B10085E403 /* ChompEm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D46CDD391B4AE8B10085E403 /* Build configuration list for PBXNativeTarget "ChompEm" */;
+			buildPhases = (
+				D46CDD121B4AE8B10085E403 /* Sources */,
+				D46CDD131B4AE8B10085E403 /* Frameworks */,
+				D46CDD141B4AE8B10085E403 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChompEm;
+			productName = ChompEm;
+			productReference = D46CDD161B4AE8B10085E403 /* ChompEm.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D46CDD2E1B4AE8B10085E403 /* ChompEmTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D46CDD3C1B4AE8B10085E403 /* Build configuration list for PBXNativeTarget "ChompEmTests" */;
+			buildPhases = (
+				D46CDD2B1B4AE8B10085E403 /* Sources */,
+				D46CDD2C1B4AE8B10085E403 /* Frameworks */,
+				D46CDD2D1B4AE8B10085E403 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D46CDD311B4AE8B10085E403 /* PBXTargetDependency */,
+			);
+			name = ChompEmTests;
+			productName = ChompEmTests;
+			productReference = D46CDD2F1B4AE8B10085E403 /* ChompEmTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D46CDD0E1B4AE8B10085E403 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Paulo Ricardo Ramos da Rosa";
+				TargetAttributes = {
+					D46CDD151B4AE8B10085E403 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					D46CDD2E1B4AE8B10085E403 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = D46CDD151B4AE8B10085E403;
+					};
+				};
+			};
+			buildConfigurationList = D46CDD111B4AE8B10085E403 /* Build configuration list for PBXProject "ChompEm" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D46CDD0D1B4AE8B10085E403;
+			productRefGroup = D46CDD171B4AE8B10085E403 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D46CDD151B4AE8B10085E403 /* ChompEm */,
+				D46CDD2E1B4AE8B10085E403 /* ChompEmTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D46CDD141B4AE8B10085E403 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D46CDD2A1B4AE8B10085E403 /* LaunchScreen.xib in Resources */,
+				D46CDD271B4AE8B10085E403 /* Images.xcassets in Resources */,
+				D46CDD1E1B4AE8B10085E403 /* GameScene.sks in Resources */,
+				D46CDD251B4AE8B10085E403 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D46CDD2D1B4AE8B10085E403 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D46CDD121B4AE8B10085E403 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D46CDD201B4AE8B10085E403 /* GameScene.swift in Sources */,
+				D46CDD221B4AE8B10085E403 /* GameViewController.swift in Sources */,
+				D46CDD1C1B4AE8B10085E403 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D46CDD2B1B4AE8B10085E403 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D46CDD361B4AE8B10085E403 /* ChompEmTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D46CDD311B4AE8B10085E403 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D46CDD151B4AE8B10085E403 /* ChompEm */;
+			targetProxy = D46CDD301B4AE8B10085E403 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D46CDD231B4AE8B10085E403 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D46CDD241B4AE8B10085E403 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D46CDD281B4AE8B10085E403 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D46CDD291B4AE8B10085E403 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D46CDD371B4AE8B10085E403 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D46CDD381B4AE8B10085E403 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D46CDD3A1B4AE8B10085E403 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ChompEm/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D46CDD3B1B4AE8B10085E403 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ChompEm/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D46CDD3D1B4AE8B10085E403 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ChompEmTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChompEm.app/ChompEm";
+			};
+			name = Debug;
+		};
+		D46CDD3E1B4AE8B10085E403 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ChompEmTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChompEm.app/ChompEm";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D46CDD111B4AE8B10085E403 /* Build configuration list for PBXProject "ChompEm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D46CDD371B4AE8B10085E403 /* Debug */,
+				D46CDD381B4AE8B10085E403 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D46CDD391B4AE8B10085E403 /* Build configuration list for PBXNativeTarget "ChompEm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D46CDD3A1B4AE8B10085E403 /* Debug */,
+				D46CDD3B1B4AE8B10085E403 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D46CDD3C1B4AE8B10085E403 /* Build configuration list for PBXNativeTarget "ChompEmTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D46CDD3D1B4AE8B10085E403 /* Debug */,
+				D46CDD3E1B4AE8B10085E403 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D46CDD0E1B4AE8B10085E403 /* Project object */;
+}
