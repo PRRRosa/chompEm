@@ -15,8 +15,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let projectileCategoryName = "projectile"
     let playerCategoryName = "player"
     let enemyCategoryName = "enemy"
+    let barrierCategoryName = "barrier"
     let enemyCat:UInt32 = 0x1 << 1
     let amebaCat:UInt32 = 0x1 << 2
+    let barrierCat:UInt32 = 0x1 << 3
     var backgroundMusicPlayer = AVAudioPlayer()
     var gulpSound = AVAudioPlayer()
     var lastYieldTimeInterval:NSTimeInterval = NSTimeInterval()
@@ -34,7 +36,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var randomEnemyNumber = 0
     var life = 3
     var alienSpeed = 1.0
-    
+    var direction:CGFloat  = 3.2
     var life3:SKSpriteNode = SKSpriteNode()
     var life2:SKSpriteNode = SKSpriteNode()
     var life1:SKSpriteNode = SKSpriteNode()
@@ -46,6 +48,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             createContent()
             contentCreated = true
         }
+        //println(NSUserDefaults.standardUserDefaults().objectForKey("HighestScore")!)
+        
+        let swipeRight:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("swipedRight:"))
+        swipeRight.direction = .Right
+        view.addGestureRecognizer(swipeRight)
+        
+        
+        let swipeLeft:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("swipedLeft:"))
+        swipeLeft.direction = .Left
+        view.addGestureRecognizer(swipeLeft)
+        
         
     }
     
@@ -387,6 +400,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         setupHud()
         randomisePlayerInit()
+        let barrier = SKSpriteNode(texture: nil, color: nil, size: CGSizeMake(self.size.width,10.0))
+        barrier.position = CGPointMake(self.frame.width/2, 0)
+        barrier.physicsBody = SKPhysicsBody(rectangleOfSize: barrier.size)
+        barrier.physicsBody!.dynamic = false
+        barrier.physicsBody!.categoryBitMask = barrierCat
+        barrier.physicsBody!.contactTestBitMask = enemyCat
+        barrier.physicsBody!.collisionBitMask = 3
+        
+        
+        self.addChild(barrier)
+        
         
     }
     
@@ -401,6 +425,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if ((firstBody.categoryBitMask & amebaCat != 0) && (secondBody.categoryBitMask & enemyCat != 0)) {
             projectileDidCollideWithMonster(firstBody.node as! SKSpriteNode, monster: secondBody.node as! SKSpriteNode)
+        }
+        if ((firstBody.categoryBitMask & barrierCat != 0) && (secondBody.categoryBitMask & enemyCat != 0)) {
+            //projectileDidCollideWithMonster(firstBody.node as! SKSpriteNode, monster: secondBody.node as! SKSpriteNode)
+            secondBody.node?.removeFromParent()
         }
     }
     
@@ -522,6 +550,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func addMonster(){
         
+        if(direction == 3.2){
+            direction = -3.2
+        }
+        else{
+            direction = 3.2
+        }
+        println(direction)
         alien = randomiseEnemy() as SKSpriteNode
         if (randomEnemyNumber == 0){
             createRedEnemyAnimation()
@@ -558,7 +593,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         var actionArray:NSMutableArray = NSMutableArray()
         
-        actionArray.addObject(SKAction.moveTo(CGPointMake(position, -alien.size.height), duration: NSTimeInterval(4 * alienSpeed)))
+        let fall = SKAction.moveTo(CGPointMake(position, -alien.size.height), duration: NSTimeInterval(4 * alienSpeed))
+        let rotate = SKAction.rotateByAngle(direction/2, duration: 5)
+        let group = SKAction.group([fall,rotate])
+        actionArray.addObject(group)
         
         let loseAction = SKAction.runBlock() {
             let reveal = SKTransition.flipVerticalWithDuration(0.5)
@@ -653,35 +691,50 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     
-    //    func swipedRight(sender:UISwipeGestureRecognizer){
-    //        switch playerPosition{
-    //        case 0:
-    //             player.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/3)
-    //             playerPosition = 1
-    //        case 1:
-    //             player.position = CGPointMake((self.frame.size.width/2)+(self.frame.size.width/2)/2, self.frame.size.height/3)
-    //             playerPosition = 2
-    //        default:
-    //            player.position = player.position
-    //        }
-    //
-    //    }
-    //
-    //    func swipedLeft(sender:UISwipeGestureRecognizer){
-    //        switch playerPosition{
-    //        case 2:
-    //            player.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/3)
-    //            playerPosition = 1
-    //        case 1:
-    //            player.position = CGPointMake((self.frame.size.width/2)/2, self.frame.size.height/3)
-    //            playerPosition = 0
-    //
-    //        default:
-    //            player.position = player.position
-    //        }
-    //    }
+    func swipedRight(sender:UISwipeGestureRecognizer){
+        switch playerPosition{
+        case 0:
+            player.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/3.5)
+            playerPosition = 1
+        case 1:
+            player.position = CGPointMake((self.frame.size.width/2)+(self.frame.size.width/2)/2, self.frame.size.height/3.5)
+            playerPosition = 2
+        default:
+            player.position = player.position
+        }
+        
+    }
+    
+    func swipedLeft(sender:UISwipeGestureRecognizer){
+        switch playerPosition{
+        case 2:
+            player.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/3.5)
+            playerPosition = 1
+        case 1:
+            player.position = CGPointMake((self.frame.size.width/2)/2, self.frame.size.height/3.5)
+            playerPosition = 0
+            
+        default:
+            player.position = player.position
+        }
+    }
     
     
+    //     override func didMoveToView(view: SKView) {
+    //
+    //            //self.addChild(myLabel)
+    //
+    //                    let swipeRight:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("swipedRight:"))
+    //                    swipeRight.direction = .Right
+    //                    view.addGestureRecognizer(swipeRight)
+    //
+    //
+    //                    let swipeLeft:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("swipedLeft:"))
+    //                    swipeLeft.direction = .Left
+    //                    view.addGestureRecognizer(swipeLeft)
+    //
+    //        }
+    //
     
     
     
@@ -748,7 +801,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 //inserir score no gameCenter
                 var game: GameViewController = self.view?.window?.rootViewController as! GameViewController
                 if (game.playerIsAuthenticated){
-                    var leaderboardScore = GKScore(leaderboardIdentifier: "chompEm.highscores")
+                    var leaderboardScore = GKScore(leaderboardIdentifier: "ID DA LEADERBOARD")
                     leaderboardScore.value = Int64(score)
                     GKScore.reportScores([leaderboardScore], withCompletionHandler: {(error) -> Void in
                         let alert = UIAlertView(title: "Success", message: "Score updated", delegate: self, cancelButtonTitle: "Ok")
@@ -764,7 +817,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //inserir score no gameCenter
             var game: GameViewController = self.view?.window?.rootViewController as! GameViewController
             if (game.playerIsAuthenticated){
-                var leaderboardScore = GKScore(leaderboardIdentifier: "chompEm.highscores")
+                var leaderboardScore = GKScore(leaderboardIdentifier: "ID DA LEADERBOARD")
                 leaderboardScore.value = Int64(highestScore)
                 GKScore.reportScores([leaderboardScore], withCompletionHandler: {(error) -> Void in
                     let alert = UIAlertView(title: "Success", message: "Score updated", delegate: self, cancelButtonTitle: "Ok")
