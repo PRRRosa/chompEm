@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="7701"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="amoebaProject_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <imageView alignment="center" verticalAlignment="center" image="verde-1" id="K9X-5h-q1m"/>
+                    </items>
+                    <connections>
+                        <segue destination="bEB-WH-OTs" kind="relationship" relationship="nextPage" id="yqf-k4-Pf5"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="235" y="347"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="skT-sY-W3B">
+            <objects>
+                <controller id="bEB-WH-OTs">
+                    <items>
+                        <imageView alignment="center" verticalAlignment="center" image="roxo-1" id="Zvr-OQ-paS"/>
+                    </items>
+                    <connections>
+                        <segue destination="Nek-Zj-gmp" kind="relationship" relationship="nextPage" id="3Ui-sh-XQJ"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="408" y="347"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="3Fq-jQ-J4q">
+            <objects>
+                <controller id="Nek-Zj-gmp">
+                    <items>
+                        <imageView alignment="center" verticalAlignment="center" image="laranja-1" id="ozy-d5-9At"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="573" y="347"/>
+        </scene>
+        <!--Glance Interface Controller-->
+        <scene sceneID="BOz-TT-tkC">
+            <objects>
+                <glanceController spacing="0.0" id="0uZ-2p-rRc" customClass="GlanceController" customModule="amoebaProject_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <group alignment="left" id="t8f-Gd-c4y">
+                            <items>
+                                <label height="42.5" alignment="left" text="chompEM           High Score:" numberOfLines="2" id="dVn-k0-2pr"/>
+                            </items>
+                        </group>
+                        <group alignment="left" backgroundImage="Tinta_0" id="uCw-4Q-Ouw">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="00" id="rJf-5Y-gR2">
+                                    <fontDescription key="font" type="system" weight="light" pointSize="14"/>
+                                </label>
+                            </items>
+                        </group>
+                    </items>
+                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
+                    <connections>
+                        <outlet property="lblScore" destination="rJf-5Y-gR2" id="44g-St-dgu"/>
+                        <outlet property="tinta" destination="uCw-4Q-Ouw" id="2hu-DZ-1ai"/>
+                    </connections>
+                </glanceController>
+            </objects>
+            <point key="canvasLocation" x="235" y="672"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="XkS-y5-khE"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="TODO_CATEGORY" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="XkS-y5-khE" id="49B-RR-99y"/>
+                        <segue destination="gdX-wl-uQE" kind="relationship" relationship="dynamicNotificationInterface" id="fKh-qV-3T2"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="235" y="1001"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="KIl-fV-djm">
+            <objects>
+                <controller id="gdX-wl-uQE" customClass="NotificationController" customModule="amoebaProject_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <imageView alignment="left" id="Hmb-HJ-7Bt"/>
+                    </items>
+                    <connections>
+                        <outlet property="imgAmeba" destination="Hmb-HJ-7Bt" id="Scn-Pi-FdB"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="553" y="1001"/>
+        </scene>
+    </scenes>
+</document>
