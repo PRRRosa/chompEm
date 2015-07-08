@@ -789,34 +789,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 sprite.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/3.5)
             }
             
-            if let name = nodeColor.name{
-                if(name == "btnY"){
-                    //player = SKSpriteNode(imageNamed: "AlienAmarelo" as String)
-                    player.name = "yellow"
-                    player.texture = SKTexture(imageNamed: "AmoebaAmarelo")
-                    println(nodeColor.name!)
-                    println(player.name!)
-                    //createYellowAnimation()
-                }
-                
-                if(name == "btnR"){
-                    //player = SKSpriteNode(imageNamed: "AlienVermelho" as String)
-                    player.name = "red"
-                    player.texture = SKTexture(imageNamed: "AmoebaVermelha")
-                    println(nodeColor.name!)
-                    println(player.name!)
-                    //createRedAnimation()
-                }
-                
-                if(name == "btnB"){
-                    //player = SKSpriteNode(imageNamed: "AlienAzul" as String)
-                    player.name = "blue"
-                    player.texture = SKTexture(imageNamed: "AmoebaAzul")
-                    println(nodeColor.name!)
-                    println(player.name!)
-                    //createBlueAnimation()
-                }
-            }
+//            if let name = nodeColor.name{
+//                if(name == "btnY"){
+//                    //player = SKSpriteNode(imageNamed: "AlienAmarelo" as String)
+//                    player.name = "yellow"
+//                    player.texture = SKTexture(imageNamed: "AmoebaAmarelo")
+//                    println(nodeColor.name!)
+//                    println(player.name!)
+//                    //createYellowAnimation()
+//                }
+//                
+//                if(name == "btnR"){
+//                    //player = SKSpriteNode(imageNamed: "AlienVermelho" as String)
+//                    player.name = "red"
+//                    player.texture = SKTexture(imageNamed: "AmoebaVermelha")
+//                    println(nodeColor.name!)
+//                    println(player.name!)
+//                    //createRedAnimation()
+//                }
+//                
+//                if(name == "btnB"){
+//                    //player = SKSpriteNode(imageNamed: "AlienAzul" as String)
+//                    player.name = "blue"
+//                    player.texture = SKTexture(imageNamed: "AmoebaAzul")
+//                    println(nodeColor.name!)
+//                    println(player.name!)
+//                    //createBlueAnimation()
+//                }
+//            }
             
         }
     }
@@ -832,7 +832,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 //inserir score no gameCenter
                 var game: GameViewController = self.view?.window?.rootViewController as! GameViewController
                 if (game.playerIsAuthenticated){
-                    var leaderboardScore = GKScore(leaderboardIdentifier: "ID DA LEADERBOARD")
+                    var leaderboardScore = GKScore(leaderboardIdentifier: "chompEm.highscores")
                     leaderboardScore.value = Int64(score)
                     GKScore.reportScores([leaderboardScore], withCompletionHandler: {(error) -> Void in
                         let alert = UIAlertView(title: "Success", message: "Score updated", delegate: self, cancelButtonTitle: "Ok")
@@ -848,7 +848,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //inserir score no gameCenter
             var game: GameViewController = self.view?.window?.rootViewController as! GameViewController
             if (game.playerIsAuthenticated){
-                var leaderboardScore = GKScore(leaderboardIdentifier: "ID DA LEADERBOARD")
+                var leaderboardScore = GKScore(leaderboardIdentifier: "chompEm.highscores")
                 leaderboardScore.value = Int64(highestScore)
                 GKScore.reportScores([leaderboardScore], withCompletionHandler: {(error) -> Void in
                     let alert = UIAlertView(title: "Success", message: "Score updated", delegate: self, cancelButtonTitle: "Ok")
