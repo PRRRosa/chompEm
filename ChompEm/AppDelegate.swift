@@ -25,16 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         notification.alertAction = "open"
         notification.fireDate = NSDate().dateByAddingTimeInterval(2*7*24*3600)
         notification.soundName = UILocalNotificationDefaultSoundName
-        notification.userInfo = ["title": "Reminder"]
+        notification.userInfo = ["title": "Reminder Test"]
         notification.category = "TODO_CATEGORY"
         
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
         
-        if (UIApplication.sharedApplication().scheduledLocalNotifications.first != nil){
-            UIApplication.sharedApplication().scheduledLocalNotifications.first?.scheduleLocalNotification(notification)
-        }
-        else{
-            UIApplication.sharedApplication().scheduleLocalNotification(notification)
-        }
         
         return true
     }
