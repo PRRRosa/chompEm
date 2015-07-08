@@ -46,7 +46,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var redAlienFrames = [SKTexture]()
     var blueAlienFrames = [SKTexture]()
     var yellowAlienFrames = [SKTexture]()
-
+    var orangeMounthFrames = [SKTexture]()
+    var greenMounthFrames = [SKTexture]()
+    var purpleMounthFrames = [SKTexture]()
 
 
     
@@ -106,11 +108,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    func runOrangeAnimation(){
+    func runOrangeAnimation()->SKAction{
         scoreLabel.fontColor = UIColor.orangeColor()
         player.name = "orange"
-        player.runAction( SKAction.repeatActionForever(SKAction.animateWithTextures(orangeFrames, timePerFrame: 0.005, resize: true, restore: false)), withKey:"playerLaranja")
-        
+        //player.runAction( SKAction.repeatActionForever(SKAction.animateWithTextures(orangeFrames, timePerFrame: 0.005, resize: true, restore: false)), withKey:"playerLaranja")
+        return (SKAction.repeatActionForever(SKAction.animateWithTextures(orangeFrames, timePerFrame: 0.005, resize: true, restore: false)))
 
     }
     
@@ -132,10 +134,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    func runGreenAnimation(){
+    func runGreenAnimation()->SKAction{
         scoreLabel.fontColor = UIColor.greenColor()
         player.name = "green"
-        player.runAction( SKAction.repeatActionForever(SKAction.animateWithTextures(greenFrames, timePerFrame: 0.005, resize: true, restore: false)), withKey:"playerVerde")
+        //player.runAction( SKAction.repeatActionForever(SKAction.animateWithTextures(greenFrames, timePerFrame: 0.005, resize: true, restore: false)), withKey:"playerVerde")
+        return (SKAction.repeatActionForever(SKAction.animateWithTextures(greenFrames, timePerFrame: 0.005, resize: true, restore: false)))
     }
     
     func createPurpleAnimation(){
@@ -154,11 +157,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func runPurpleAnimation(){
+    func runPurpleAnimation()->SKAction{
         scoreLabel.fontColor = UIColor.purpleColor()
         player.name = "purple"
-        player.runAction( SKAction.repeatActionForever(SKAction.animateWithTextures(purpleFrames, timePerFrame: 0.005, resize: true, restore: false)), withKey:"playerVioleta")
-        
+        //player.runAction( SKAction.repeatActionForever(SKAction.animateWithTextures(purpleFrames, timePerFrame: 0.005, resize: true, restore: false)), withKey:"playerVioleta")
+        return SKAction.repeatActionForever(SKAction.animateWithTextures(purpleFrames, timePerFrame: 0.005, resize: true, restore: false))
     }
     
     func createRedEnemyAnimation(){
@@ -230,22 +233,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func createPurpleMouthOpeningAnimation(){
         let playerAnimatedAtlas = SKTextureAtlas(named: "amoebaVioletaBoca")
-        var mouthFrames = [SKTexture]()
+        
         
         let numImages = playerAnimatedAtlas.textureNames.count
         for (var i = 0; i < numImages; i++) {
             let nameA = "amebaVioleta_\(i)"
-            mouthFrames.append(playerAnimatedAtlas.textureNamed(nameA))
+            purpleMounthFrames.append(playerAnimatedAtlas.textureNamed(nameA))
             
         }
         for (var i = numImages - 1; i >= 0; i--) {
             let nameA = "amebaVioleta_\(i)"
-            mouthFrames.append(playerAnimatedAtlas.textureNamed(nameA))
+            purpleMounthFrames.append(playerAnimatedAtlas.textureNamed(nameA))
             
         }
         
         //playerMouthAnimation = mouthFrames
-        player.runAction((SKAction.animateWithTextures(mouthFrames, timePerFrame: 0.01, resize: true, restore: true)), withKey:"purpleMouthOpening")
+        //player.runAction((SKAction.animateWithTextures(mouthFrames, timePerFrame: 0.01, resize: true, restore: true)), withKey:"purpleMouthOpening")
+    }
+    
+    func runPurpleMounth()->SKAction{
+        return (SKAction.animateWithTextures(purpleMounthFrames, timePerFrame: 0.01, resize: true, restore: true))
     }
     
     func createPurpleHitAnimation(){
@@ -300,44 +307,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func createGreenMouthOpeningAnimation(){
         let playerAnimatedAtlas = SKTextureAtlas(named: "amoebaVerdeBoca")
-        var mouthFrames = [SKTexture]()
+
         
         let numImages = playerAnimatedAtlas.textureNames.count
         for (var i = 0; i < numImages; i++) {
             let nameA = "amebaVerde_\(i)"
-            mouthFrames.append(playerAnimatedAtlas.textureNamed(nameA))
+            greenMounthFrames.append(playerAnimatedAtlas.textureNamed(nameA))
             
         }
-        for (var i = numImages - 1; i >= 0; i--) {
-            let nameA = "amebaVerde_\(i)"
-            mouthFrames.append(playerAnimatedAtlas.textureNamed(nameA))
-            
-        }
-        
-        //playerMouthAnimation = mouthFrames
-        player.runAction((SKAction.animateWithTextures(mouthFrames, timePerFrame: 0.01, resize: true, restore: true)), withKey:"greenMouthOpening")
+    }
+    
+    
+    func runGreenMounth()->SKAction{
+        return (SKAction.animateWithTextures(greenMounthFrames, timePerFrame: 0.01, resize: true, restore: true))
     }
     
     func createOrangeMouthOpeningAnimation(){
         let playerAnimatedAtlas = SKTextureAtlas(named: "amoebaLaranjaBoca")
-        var mouthFrames = [SKTexture]()
-        
         let numImages = playerAnimatedAtlas.textureNames.count
         for (var i = 0; i < numImages; i++) {
             let nameA = "amebaLaranja_\(i)"
-            mouthFrames.append(playerAnimatedAtlas.textureNamed(nameA))
-            
-        }
-        for (var i = numImages - 1; i >= 0; i--) {
-            let nameA = "amebaLaranja_\(i)"
-            mouthFrames.append(playerAnimatedAtlas.textureNamed(nameA))
+            orangeMounthFrames.append(playerAnimatedAtlas.textureNamed(nameA))
             
         }
         
-        //playerMouthAnimation = mouthFrames
-        player.runAction((SKAction.animateWithTextures(mouthFrames, timePerFrame: 0.01, resize: true, restore: true)), withKey:"orangeMouthOpening")
+        
     }
     
+    func runOrangeMounth()->SKAction{
+        return (SKAction.animateWithTextures(orangeMounthFrames, timePerFrame: 0.01, resize: true, restore: true))
+    }
     
     func createContent(){
         
@@ -382,7 +381,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         createRedEnemyAnimation()
         createBlueEnemyAnimation()
         createYellowEnemyAnimation()
-        
+        createGreenMouthOpeningAnimation()
+        createOrangeMouthOpeningAnimation()
+        createPurpleMouthOpeningAnimation()
         player = SKSpriteNode(imageNamed: "AmoebaVermelha")
         randomisePlayerInit()
         
@@ -432,7 +433,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             projectileDidCollideWithMonster(firstBody.node as! SKSpriteNode, monster: secondBody.node as! SKSpriteNode)
         }
         if ((firstBody.categoryBitMask & barrierCat != 0) && (secondBody.categoryBitMask & enemyCat != 0)) {
-            //projectileDidCollideWithMonster(firstBody.node as! SKSpriteNode, monster: secondBody.node as! SKSpriteNode)
             secondBody.node?.removeFromParent()
         }
     }
@@ -441,23 +441,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func projectileDidCollideWithMonster(projectile:SKSpriteNode, monster:SKSpriteNode) {
         
         if(projectile.name! == "purple" && (monster.name! == "blue" || monster.name! == "red")){
-            createPurpleMouthOpeningAnimation()
-            
+//            createPurpleMouthOpeningAnimation()
+            player.runAction(runPurpleMounth())
             gulpSound.play()
             monster.removeFromParent()
             adjustScore()
             eatCount()
         }
         else if(projectile.name! == "green" && (monster.name! == "blue" || monster.name! == "yellow")){
-            createGreenMouthOpeningAnimation()
-            
+//            createGreenMouthOpeningAnimation()
+            player.runAction(runGreenMounth())
             gulpSound.play()
             monster.removeFromParent()
             adjustScore()
             eatCount()
         }else if(projectile.name! == "orange" && (monster.name! == "red" || monster.name! == "yellow")){
-            createOrangeMouthOpeningAnimation()
-            
+//            createOrangeMouthOpeningAnimation()
+            player.runAction(runOrangeMounth())
             gulpSound.play()
             monster.removeFromParent()
             adjustScore()
@@ -634,27 +634,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if(player.name == "purple"){
             if (random == 0){
-                runOrangeAnimation()
+                player.runAction(SKAction.sequence([runPurpleMounth(),runOrangeAnimation()]))
+                //player.runAction(runOrangeAnimation())
                 
             }else if (random == 1){
-                runGreenAnimation()
+                //player.runAction(runGreenAnimation())
+                 player.runAction(SKAction.sequence([runPurpleMounth(),runGreenAnimation()]))
                 
             }
             
         }
         else if(player.name == "green"){
                 if (random == 0){
-                    runPurpleAnimation()
+                    player.runAction(SKAction.sequence([runGreenMounth(),runPurpleAnimation()]))
                 }else if (random == 1){
-                    runOrangeAnimation()
+                    player.runAction(SKAction.sequence([runGreenMounth(),runOrangeAnimation()]))
                 }
                 
             }
             else if(player.name == "orange"){
                     if (random == 0){
-                        runPurpleAnimation()
+                        player.runAction(SKAction.sequence([runOrangeMounth(),runPurpleAnimation()]))
+
                     }else if (random == 1){
-                        runGreenAnimation()
+                        player.runAction(SKAction.sequence([runOrangeMounth(),runGreenAnimation()]))
                     }
                     
                 }
@@ -665,11 +668,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func randomisePlayerInit(){
         let random = Int(arc4random_uniform(3))
         if (random == 0){
-            runPurpleAnimation()
+            player.runAction(runPurpleAnimation())
         }else if (random == 1){
-            runGreenAnimation()
+            player.runAction(runGreenAnimation())
         } else {
-            runOrangeAnimation()
+            player.runAction(runOrangeAnimation())
+            
         }
     }
     
@@ -756,7 +760,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 //inserir score no gameCenter
                 var game: GameViewController = self.view?.window?.rootViewController as! GameViewController
                 if (game.playerIsAuthenticated){
-                    var leaderboardScore = GKScore(leaderboardIdentifier: "ID DA LEADERBOARD")
+                    var leaderboardScore = GKScore(leaderboardIdentifier: "chompEm.highscores")
                     leaderboardScore.value = Int64(score)
                     GKScore.reportScores([leaderboardScore], withCompletionHandler: {(error) -> Void in
                         let alert = UIAlertView(title: "Success", message: "Score updated", delegate: self, cancelButtonTitle: "Ok")
@@ -772,7 +776,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //inserir score no gameCenter
             var game: GameViewController = self.view?.window?.rootViewController as! GameViewController
             if (game.playerIsAuthenticated){
-                var leaderboardScore = GKScore(leaderboardIdentifier: "ID DA LEADERBOARD")
+                var leaderboardScore = GKScore(leaderboardIdentifier: "chompEm.highscores")
                 leaderboardScore.value = Int64(highestScore)
                 GKScore.reportScores([leaderboardScore], withCompletionHandler: {(error) -> Void in
                     let alert = UIAlertView(title: "Success", message: "Score updated", delegate: self, cancelButtonTitle: "Ok")
