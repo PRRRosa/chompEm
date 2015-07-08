@@ -12,7 +12,6 @@
 		D46CDD1E1B4AE8B10085E403 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D46CDD1D1B4AE8B10085E403 /* GameScene.sks */; };
 		D46CDD201B4AE8B10085E403 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46CDD1F1B4AE8B10085E403 /* GameScene.swift */; };
 		D46CDD251B4AE8B10085E403 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D46CDD231B4AE8B10085E403 /* Main.storyboard */; };
-		D46CDD361B4AE8B10085E403 /* ChompEmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46CDD351B4AE8B10085E403 /* ChompEmTests.swift */; };
 		D46CDD431B4AFC770085E403 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46CDD3F1B4AFC770085E403 /* GameOverScene.swift */; };
 		D46CDD441B4AFC770085E403 /* HowToPlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46CDD401B4AFC770085E403 /* HowToPlayScene.swift */; };
 		D46CDD451B4AFC770085E403 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46CDD411B4AFC770085E403 /* MenuScene.swift */; };
@@ -46,13 +45,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D46CDD301B4AE8B10085E403 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D46CDD0E1B4AE8B10085E403 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D46CDD151B4AE8B10085E403;
-			remoteInfo = ChompEm;
-		};
 		D46CDD801B4AFF0A0085E403 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D46CDD0E1B4AE8B10085E403 /* Project object */;
@@ -91,7 +83,6 @@
 		D46CDD1D1B4AE8B10085E403 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		D46CDD1F1B4AE8B10085E403 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		D46CDD241B4AE8B10085E403 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D46CDD2F1B4AE8B10085E403 /* ChompEmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChompEmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D46CDD341B4AE8B10085E403 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D46CDD351B4AE8B10085E403 /* ChompEmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChompEmTests.swift; sourceTree = "<group>"; };
 		D46CDD3F1B4AFC770085E403 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
@@ -139,13 +130,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D46CDD2C1B4AE8B10085E403 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D46CDD6C1B4AFF090085E403 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -174,7 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				D46CDD161B4AE8B10085E403 /* ChompEm.app */,
-				D46CDD2F1B4AE8B10085E403 /* ChompEmTests.xctest */,
 				D46CDD6F1B4AFF090085E403 /* ChompEm WatchKit Extension.appex */,
 				D46CDD7E1B4AFF0A0085E403 /* ChompEm WatchKit App.app */,
 			);
@@ -316,24 +299,6 @@
 			productReference = D46CDD161B4AE8B10085E403 /* ChompEm.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D46CDD2E1B4AE8B10085E403 /* ChompEmTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D46CDD3C1B4AE8B10085E403 /* Build configuration list for PBXNativeTarget "ChompEmTests" */;
-			buildPhases = (
-				D46CDD2B1B4AE8B10085E403 /* Sources */,
-				D46CDD2C1B4AE8B10085E403 /* Frameworks */,
-				D46CDD2D1B4AE8B10085E403 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D46CDD311B4AE8B10085E403 /* PBXTargetDependency */,
-			);
-			name = ChompEmTests;
-			productName = ChompEmTests;
-			productReference = D46CDD2F1B4AE8B10085E403 /* ChompEmTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		D46CDD6E1B4AFF090085E403 /* ChompEm WatchKit Extension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D46CDD901B4AFF0A0085E403 /* Build configuration list for PBXNativeTarget "ChompEm WatchKit Extension" */;
@@ -385,10 +350,6 @@
 							};
 						};
 					};
-					D46CDD2E1B4AE8B10085E403 = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = D46CDD151B4AE8B10085E403;
-					};
 					D46CDD6E1B4AFF090085E403 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = 9468LRW88W;
@@ -413,7 +374,6 @@
 			projectRoot = "";
 			targets = (
 				D46CDD151B4AE8B10085E403 /* ChompEm */,
-				D46CDD2E1B4AE8B10085E403 /* ChompEmTests */,
 				D46CDD6E1B4AFF090085E403 /* ChompEm WatchKit Extension */,
 				D46CDD7D1B4AFF0A0085E403 /* ChompEm WatchKit App */,
 			);
@@ -444,13 +404,6 @@
 				D46CDD611B4AFD3F0085E403 /* amoebaLaranjaBoca.atlas in Resources */,
 				D46CDD251B4AE8B10085E403 /* Main.storyboard in Resources */,
 				D46CDD5D1B4AFD3F0085E403 /* amoebaFeiaAmarela.atlas in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D46CDD2D1B4AE8B10085E403 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,14 +442,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D46CDD2B1B4AE8B10085E403 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D46CDD361B4AE8B10085E403 /* ChompEmTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D46CDD6B1B4AFF090085E403 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -510,11 +455,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D46CDD311B4AE8B10085E403 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D46CDD151B4AE8B10085E403 /* ChompEm */;
-			targetProxy = D46CDD301B4AE8B10085E403 /* PBXContainerItemProxy */;
-		};
 		D46CDD811B4AFF0A0085E403 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D46CDD7D1B4AFF0A0085E403 /* ChompEm WatchKit App */;
@@ -648,40 +588,6 @@
 			};
 			name = Release;
 		};
-		D46CDD3D1B4AE8B10085E403 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ChompEmTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChompEm.app/ChompEm";
-			};
-			name = Debug;
-		};
-		D46CDD3E1B4AE8B10085E403 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ChompEmTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChompEm.app/ChompEm";
-			};
-			name = Release;
-		};
 		D46CDD8E1B4AFF0A0085E403 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -764,15 +670,6 @@
 			buildConfigurations = (
 				D46CDD3A1B4AE8B10085E403 /* Debug */,
 				D46CDD3B1B4AE8B10085E403 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D46CDD3C1B4AE8B10085E403 /* Build configuration list for PBXNativeTarget "ChompEmTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D46CDD3D1B4AE8B10085E403 /* Debug */,
-				D46CDD3E1B4AE8B10085E403 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
