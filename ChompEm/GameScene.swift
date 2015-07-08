@@ -57,7 +57,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             createContent()
             contentCreated = true
         }
-        //println(NSUserDefaults.standardUserDefaults().objectForKey("HighestScore")!)
         
         let swipeRight:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("swipedRight:"))
         swipeRight.direction = .Right
@@ -73,7 +72,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setupHud(){
         scoreLabel = SKLabelNode(fontNamed: "Marker Felt")
-        println(scoreLabel.fontName)
         scoreLabel.name = "scoreHud"
         scoreLabel.fontSize = 50
         //scoreLabel.fontColor = UIColor.greenColor()
@@ -386,9 +384,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         createYellowEnemyAnimation()
         
         player = SKSpriteNode(imageNamed: "AmoebaVermelha")
-        //player = SKSpriteNode(texture: firstFrame)
-        //player.name = "purple"
-        //createPurpleAnimation()
         randomisePlayerInit()
         
         player.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/3.5)
@@ -405,29 +400,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         
-        btnBlue = SKSpriteNode(imageNamed: "Azul")
-        btnBlue.name = "btnB"
-        btnBlue.position = CGPointMake(self.frame.size.width * 0.5, self.frame.size.height/2 * 0.3)
-        //        btnBlue.xScale = 1.3
-        //        btnBlue.yScale = 1.3
-        //        self.addChild(btnBlue)
-        
-        btnRed = SKSpriteNode(imageNamed: "Vermelho")
-        btnRed.name = "btnR"
-        btnRed.position = CGPointMake(self.frame.size.width * 0.20, self.frame.size.height/2 * 0.3)
-        //        btnRed.xScale = 1.3
-        //        btnRed.yScale = 1.3
-        //        self.addChild(btnRed)
-        
-        btnYellow = SKSpriteNode(imageNamed: "Amarelo")
-        btnYellow.name = "btnY"
-        btnYellow.position = CGPointMake(self.frame.size.width * 0.80, self.frame.size.height/2 * 0.3)
-        //        btnYellow.xScale = 1.3
-        //        btnYellow.yScale = 1.3
-        //        self.addChild(btnYellow)
-        
-        
-        //player.size.height/2 + 180
         self.physicsWorld.gravity = CGVectorMake(0, 0)
         self.physicsWorld.contactDelegate = self
         
@@ -467,9 +439,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     func projectileDidCollideWithMonster(projectile:SKSpriteNode, monster:SKSpriteNode) {
-        println("Hit")
-        println(monster.name!)
-        println(projectile.name!)
         
         if(projectile.name! == "purple" && (monster.name! == "blue" || monster.name! == "red")){
             createPurpleMouthOpeningAnimation()
@@ -589,7 +558,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         else{
             direction = 3.2
         }
-        println(direction)
+       
         alien = randomiseEnemy() as SKSpriteNode
         if (randomEnemyNumber == 0){
             runRedEnemyAnimation()
@@ -751,23 +720,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     
-    //     override func didMoveToView(view: SKView) {
-    //
-    //            //self.addChild(myLabel)
-    //
-    //                    let swipeRight:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("swipedRight:"))
-    //                    swipeRight.direction = .Right
-    //                    view.addGestureRecognizer(swipeRight)
-    //
-    //
-    //                    let swipeLeft:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("swipedLeft:"))
-    //                    swipeLeft.direction = .Left
-    //                    view.addGestureRecognizer(swipeLeft)
-    //
-    //        }
-    //
-    
-    
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         /* Called when a touch begins */
@@ -789,34 +741,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 sprite.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/3.5)
             }
             
-            if let name = nodeColor.name{
-                if(name == "btnY"){
-                    //player = SKSpriteNode(imageNamed: "AlienAmarelo" as String)
-                    player.name = "yellow"
-                    player.texture = SKTexture(imageNamed: "AmoebaAmarelo")
-                    println(nodeColor.name!)
-                    println(player.name!)
-                    //createYellowAnimation()
-                }
-                
-                if(name == "btnR"){
-                    //player = SKSpriteNode(imageNamed: "AlienVermelho" as String)
-                    player.name = "red"
-                    player.texture = SKTexture(imageNamed: "AmoebaVermelha")
-                    println(nodeColor.name!)
-                    println(player.name!)
-                    //createRedAnimation()
-                }
-                
-                if(name == "btnB"){
-                    //player = SKSpriteNode(imageNamed: "AlienAzul" as String)
-                    player.name = "blue"
-                    player.texture = SKTexture(imageNamed: "AmoebaAzul")
-                    println(nodeColor.name!)
-                    println(player.name!)
-                    //createBlueAnimation()
-                }
-            }
             
         }
     }
@@ -825,7 +749,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func gameOver(){
         
         if let savedScore: NSInteger = NSUserDefaults.standardUserDefaults().objectForKey("HighestScore") as? NSInteger{
-            println(savedScore)
+            
             if savedScore < score{
                 NSUserDefaults.standardUserDefaults().setObject(score, forKey:"HighestScore")
                 NSUserDefaults.standardUserDefaults().synchronize()
