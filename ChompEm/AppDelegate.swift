@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         notification.soundName = UILocalNotificationDefaultSoundName
         notification.userInfo = ["title": "Reminder Test"]
         notification.category = "TODO_CATEGORY"
-        
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
         
         
