@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>D23F1BE9-5C99-464D-A3DB-A16456FBD8A8</string>
 	<key>IDESourceControlProjectName</key>
-	<string>ChompEm</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>D822BE5D6C3C04B800A672EE2F9E2508A249AD8D</key>
 		<string>https://github.com/PauloRRR/chompEm.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>ChompEm.xcodeproj</string>
+	<string>ChompEm.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>D822BE5D6C3C04B800A672EE2F9E2508A249AD8D</key>
