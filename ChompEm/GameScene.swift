@@ -46,7 +46,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var redAlienFrames = [SKTexture]()
     var blueAlienFrames = [SKTexture]()
     var yellowAlienFrames = [SKTexture]()
-
+    var orangeMounthFrames = [SKTexture]()
+    var greenMounthFrames = [SKTexture]()
+    var purpleMounthFrames = [SKTexture]()
 
 
     
@@ -57,7 +59,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             createContent()
             contentCreated = true
         }
-        //println(NSUserDefaults.standardUserDefaults().objectForKey("HighestScore")!)
         
         let swipeRight:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("swipedRight:"))
         swipeRight.direction = .Right
@@ -73,7 +74,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setupHud(){
         scoreLabel = SKLabelNode(fontNamed: "Marker Felt")
-        println(scoreLabel.fontName)
         scoreLabel.name = "scoreHud"
         scoreLabel.fontSize = 50
         //scoreLabel.fontColor = UIColor.greenColor()
@@ -108,11 +108,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    func runOrangeAnimation(){
+    func runOrangeAnimation()->SKAction{
         scoreLabel.fontColor = UIColor.orangeColor()
         player.name = "orange"
-        player.runAction( SKAction.repeatActionForever(SKAction.animateWithTextures(orangeFrames, timePerFrame: 0.005, resize: true, restore: false)), withKey:"playerLaranja")
-        
+        //player.runAction( SKAction.repeatActionForever(SKAction.animateWithTextures(orangeFrames, timePerFrame: 0.005, resize: true, restore: false)), withKey:"playerLaranja")
+        return (SKAction.repeatActionForever(SKAction.animateWithTextures(orangeFrames, timePerFrame: 0.005, resize: true, restore: false)))
 
     }
     
@@ -134,10 +134,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    func runGreenAnimation(){
+    func runGreenAnimation()->SKAction{
         scoreLabel.fontColor = UIColor.greenColor()
         player.name = "green"
-        player.runAction( SKAction.repeatActionForever(SKAction.animateWithTextures(greenFrames, timePerFrame: 0.005, resize: true, restore: false)), withKey:"playerVerde")
+        //player.runAction( SKAction.repeatActionForever(SKAction.animateWithTextures(greenFrames, timePerFrame: 0.005, resize: true, restore: false)), withKey:"playerVerde")
+        return (SKAction.repeatActionForever(SKAction.animateWithTextures(greenFrames, timePerFrame: 0.005, resize: true, restore: false)))
     }
     
     func createPurpleAnimation(){
@@ -156,11 +157,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func runPurpleAnimation(){
+    func runPurpleAnimation()->SKAction{
         scoreLabel.fontColor = UIColor.purpleColor()
         player.name = "purple"
-        player.runAction( SKAction.repeatActionForever(SKAction.animateWithTextures(purpleFrames, timePerFrame: 0.005, resize: true, restore: false)), withKey:"playerVioleta")
-        
+        //player.runAction( SKAction.repeatActionForever(SKAction.animateWithTextures(purpleFrames, timePerFrame: 0.005, resize: true, restore: false)), withKey:"playerVioleta")
+        return SKAction.repeatActionForever(SKAction.animateWithTextures(purpleFrames, timePerFrame: 0.005, resize: true, restore: false))
     }
     
     func createRedEnemyAnimation(){
@@ -232,22 +233,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func createPurpleMouthOpeningAnimation(){
         let playerAnimatedAtlas = SKTextureAtlas(named: "amoebaVioletaBoca")
-        var mouthFrames = [SKTexture]()
+        
         
         let numImages = playerAnimatedAtlas.textureNames.count
         for (var i = 0; i < numImages; i++) {
             let nameA = "amebaVioleta_\(i)"
-            mouthFrames.append(playerAnimatedAtlas.textureNamed(nameA))
+            purpleMounthFrames.append(playerAnimatedAtlas.textureNamed(nameA))
             
         }
         for (var i = numImages - 1; i >= 0; i--) {
             let nameA = "amebaVioleta_\(i)"
-            mouthFrames.append(playerAnimatedAtlas.textureNamed(nameA))
+            purpleMounthFrames.append(playerAnimatedAtlas.textureNamed(nameA))
             
         }
         
         //playerMouthAnimation = mouthFrames
-        player.runAction((SKAction.animateWithTextures(mouthFrames, timePerFrame: 0.01, resize: true, restore: true)), withKey:"purpleMouthOpening")
+        //player.runAction((SKAction.animateWithTextures(mouthFrames, timePerFrame: 0.01, resize: true, restore: true)), withKey:"purpleMouthOpening")
+    }
+    
+    func runPurpleMounth()->SKAction{
+        return (SKAction.animateWithTextures(purpleMounthFrames, timePerFrame: 0.01, resize: true, restore: true))
     }
     
     func createPurpleHitAnimation(){
@@ -302,44 +307,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func createGreenMouthOpeningAnimation(){
         let playerAnimatedAtlas = SKTextureAtlas(named: "amoebaVerdeBoca")
-        var mouthFrames = [SKTexture]()
+
         
         let numImages = playerAnimatedAtlas.textureNames.count
         for (var i = 0; i < numImages; i++) {
             let nameA = "amebaVerde_\(i)"
-            mouthFrames.append(playerAnimatedAtlas.textureNamed(nameA))
+            greenMounthFrames.append(playerAnimatedAtlas.textureNamed(nameA))
             
         }
-        for (var i = numImages - 1; i >= 0; i--) {
-            let nameA = "amebaVerde_\(i)"
-            mouthFrames.append(playerAnimatedAtlas.textureNamed(nameA))
-            
-        }
-        
-        //playerMouthAnimation = mouthFrames
-        player.runAction((SKAction.animateWithTextures(mouthFrames, timePerFrame: 0.01, resize: true, restore: true)), withKey:"greenMouthOpening")
+    }
+    
+    
+    func runGreenMounth()->SKAction{
+        return (SKAction.animateWithTextures(greenMounthFrames, timePerFrame: 0.01, resize: true, restore: true))
     }
     
     func createOrangeMouthOpeningAnimation(){
         let playerAnimatedAtlas = SKTextureAtlas(named: "amoebaLaranjaBoca")
-        var mouthFrames = [SKTexture]()
-        
         let numImages = playerAnimatedAtlas.textureNames.count
         for (var i = 0; i < numImages; i++) {
             let nameA = "amebaLaranja_\(i)"
-            mouthFrames.append(playerAnimatedAtlas.textureNamed(nameA))
-            
-        }
-        for (var i = numImages - 1; i >= 0; i--) {
-            let nameA = "amebaLaranja_\(i)"
-            mouthFrames.append(playerAnimatedAtlas.textureNamed(nameA))
+            orangeMounthFrames.append(playerAnimatedAtlas.textureNamed(nameA))
             
         }
         
-        //playerMouthAnimation = mouthFrames
-        player.runAction((SKAction.animateWithTextures(mouthFrames, timePerFrame: 0.01, resize: true, restore: true)), withKey:"orangeMouthOpening")
+        
     }
     
+    func runOrangeMounth()->SKAction{
+        return (SKAction.animateWithTextures(orangeMounthFrames, timePerFrame: 0.01, resize: true, restore: true))
+    }
     
     func createContent(){
         
@@ -384,11 +381,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         createRedEnemyAnimation()
         createBlueEnemyAnimation()
         createYellowEnemyAnimation()
-        
+        createGreenMouthOpeningAnimation()
+        createOrangeMouthOpeningAnimation()
+        createPurpleMouthOpeningAnimation()
         player = SKSpriteNode(imageNamed: "AmoebaVermelha")
-        //player = SKSpriteNode(texture: firstFrame)
-        //player.name = "purple"
-        //createPurpleAnimation()
         randomisePlayerInit()
         
         player.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/3.5)
@@ -405,29 +401,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         
-        btnBlue = SKSpriteNode(imageNamed: "Azul")
-        btnBlue.name = "btnB"
-        btnBlue.position = CGPointMake(self.frame.size.width * 0.5, self.frame.size.height/2 * 0.3)
-        //        btnBlue.xScale = 1.3
-        //        btnBlue.yScale = 1.3
-        //        self.addChild(btnBlue)
-        
-        btnRed = SKSpriteNode(imageNamed: "Vermelho")
-        btnRed.name = "btnR"
-        btnRed.position = CGPointMake(self.frame.size.width * 0.20, self.frame.size.height/2 * 0.3)
-        //        btnRed.xScale = 1.3
-        //        btnRed.yScale = 1.3
-        //        self.addChild(btnRed)
-        
-        btnYellow = SKSpriteNode(imageNamed: "Amarelo")
-        btnYellow.name = "btnY"
-        btnYellow.position = CGPointMake(self.frame.size.width * 0.80, self.frame.size.height/2 * 0.3)
-        //        btnYellow.xScale = 1.3
-        //        btnYellow.yScale = 1.3
-        //        self.addChild(btnYellow)
-        
-        
-        //player.size.height/2 + 180
         self.physicsWorld.gravity = CGVectorMake(0, 0)
         self.physicsWorld.contactDelegate = self
         
@@ -460,35 +433,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             projectileDidCollideWithMonster(firstBody.node as! SKSpriteNode, monster: secondBody.node as! SKSpriteNode)
         }
         if ((firstBody.categoryBitMask & barrierCat != 0) && (secondBody.categoryBitMask & enemyCat != 0)) {
-            //projectileDidCollideWithMonster(firstBody.node as! SKSpriteNode, monster: secondBody.node as! SKSpriteNode)
             secondBody.node?.removeFromParent()
         }
     }
     
     
     func projectileDidCollideWithMonster(projectile:SKSpriteNode, monster:SKSpriteNode) {
-        println("Hit")
-        println(monster.name!)
-        println(projectile.name!)
         
         if(projectile.name! == "purple" && (monster.name! == "blue" || monster.name! == "red")){
-            createPurpleMouthOpeningAnimation()
-            
+//            createPurpleMouthOpeningAnimation()
+            player.runAction(runPurpleMounth())
             gulpSound.play()
             monster.removeFromParent()
             adjustScore()
             eatCount()
         }
         else if(projectile.name! == "green" && (monster.name! == "blue" || monster.name! == "yellow")){
-            createGreenMouthOpeningAnimation()
-            
+//            createGreenMouthOpeningAnimation()
+            player.runAction(runGreenMounth())
             gulpSound.play()
             monster.removeFromParent()
             adjustScore()
             eatCount()
         }else if(projectile.name! == "orange" && (monster.name! == "red" || monster.name! == "yellow")){
-            createOrangeMouthOpeningAnimation()
-            
+//            createOrangeMouthOpeningAnimation()
+            player.runAction(runOrangeMounth())
             gulpSound.play()
             monster.removeFromParent()
             adjustScore()
@@ -589,7 +558,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         else{
             direction = 3.2
         }
-        println(direction)
+       
         alien = randomiseEnemy() as SKSpriteNode
         if (randomEnemyNumber == 0){
             runRedEnemyAnimation()
@@ -665,27 +634,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if(player.name == "purple"){
             if (random == 0){
-                runOrangeAnimation()
+                player.runAction(SKAction.sequence([runPurpleMounth(),runOrangeAnimation()]))
+                //player.runAction(runOrangeAnimation())
                 
             }else if (random == 1){
-                runGreenAnimation()
+                //player.runAction(runGreenAnimation())
+                 player.runAction(SKAction.sequence([runPurpleMounth(),runGreenAnimation()]))
                 
             }
             
         }
         else if(player.name == "green"){
                 if (random == 0){
-                    runPurpleAnimation()
+                    player.runAction(SKAction.sequence([runGreenMounth(),runPurpleAnimation()]))
                 }else if (random == 1){
-                    runOrangeAnimation()
+                    player.runAction(SKAction.sequence([runGreenMounth(),runOrangeAnimation()]))
                 }
                 
             }
             else if(player.name == "orange"){
                     if (random == 0){
-                        runPurpleAnimation()
+                        player.runAction(SKAction.sequence([runOrangeMounth(),runPurpleAnimation()]))
+
                     }else if (random == 1){
-                        runGreenAnimation()
+                        player.runAction(SKAction.sequence([runOrangeMounth(),runGreenAnimation()]))
                     }
                     
                 }
@@ -696,11 +668,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func randomisePlayerInit(){
         let random = Int(arc4random_uniform(3))
         if (random == 0){
-            runPurpleAnimation()
+            player.runAction(runPurpleAnimation())
         }else if (random == 1){
-            runGreenAnimation()
+            player.runAction(runGreenAnimation())
         } else {
-            runOrangeAnimation()
+            player.runAction(runOrangeAnimation())
+            
         }
     }
     
@@ -751,23 +724,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     
-    //     override func didMoveToView(view: SKView) {
-    //
-    //            //self.addChild(myLabel)
-    //
-    //                    let swipeRight:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("swipedRight:"))
-    //                    swipeRight.direction = .Right
-    //                    view.addGestureRecognizer(swipeRight)
-    //
-    //
-    //                    let swipeLeft:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("swipedLeft:"))
-    //                    swipeLeft.direction = .Left
-    //                    view.addGestureRecognizer(swipeLeft)
-    //
-    //        }
-    //
-    
-    
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         /* Called when a touch begins */
@@ -789,34 +745,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 sprite.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/3.5)
             }
             
-//            if let name = nodeColor.name{
-//                if(name == "btnY"){
-//                    //player = SKSpriteNode(imageNamed: "AlienAmarelo" as String)
-//                    player.name = "yellow"
-//                    player.texture = SKTexture(imageNamed: "AmoebaAmarelo")
-//                    println(nodeColor.name!)
-//                    println(player.name!)
-//                    //createYellowAnimation()
-//                }
-//                
-//                if(name == "btnR"){
-//                    //player = SKSpriteNode(imageNamed: "AlienVermelho" as String)
-//                    player.name = "red"
-//                    player.texture = SKTexture(imageNamed: "AmoebaVermelha")
-//                    println(nodeColor.name!)
-//                    println(player.name!)
-//                    //createRedAnimation()
-//                }
-//                
-//                if(name == "btnB"){
-//                    //player = SKSpriteNode(imageNamed: "AlienAzul" as String)
-//                    player.name = "blue"
-//                    player.texture = SKTexture(imageNamed: "AmoebaAzul")
-//                    println(nodeColor.name!)
-//                    println(player.name!)
-//                    //createBlueAnimation()
-//                }
-//            }
+
             
         }
     }
@@ -825,7 +754,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func gameOver(){
         
         if let savedScore: NSInteger = NSUserDefaults.standardUserDefaults().objectForKey("HighestScore") as? NSInteger{
-            println(savedScore)
+            
             if savedScore < score{
                 NSUserDefaults.standardUserDefaults().setObject(score, forKey:"HighestScore")
                 NSUserDefaults.standardUserDefaults().synchronize()
