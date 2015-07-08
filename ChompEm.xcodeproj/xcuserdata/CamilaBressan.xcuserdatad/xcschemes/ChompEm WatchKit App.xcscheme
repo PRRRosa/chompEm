@@ -48,6 +48,20 @@
                ReferencedContainer = "container:ChompEm.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "903740571B4D9BB00043A033"
+               BuildableName = "ChompEm Tests.xctest"
+               BlueprintName = "ChompEm Tests"
+               ReferencedContainer = "container:ChompEm.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -56,6 +70,16 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "903740571B4D9BB00043A033"
+               BuildableName = "ChompEm Tests.xctest"
+               BlueprintName = "ChompEm Tests"
+               ReferencedContainer = "container:ChompEm.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
