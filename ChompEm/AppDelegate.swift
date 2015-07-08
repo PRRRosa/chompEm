@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         notification.category = "TODO_CATEGORY"
         
         
-        if let UIApplication.sharedApplication().scheduledLocalNotifications.first{
+        if (UIApplication.sharedApplication().scheduledLocalNotifications.first != nil){
             UIApplication.sharedApplication().scheduledLocalNotifications.first?.scheduleLocalNotification(notification)
         }
         else{
