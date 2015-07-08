@@ -40,6 +40,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var life3:SKSpriteNode = SKSpriteNode()
     var life2:SKSpriteNode = SKSpriteNode()
     var life1:SKSpriteNode = SKSpriteNode()
+    var orangeFrames = [SKTexture]()
+
+
+
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -89,19 +93,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let numImages = amoebaLaranjaAtlas.textureNames.count
         for (var i = 0; i < numImages; i++) {
             let nameA = "amoebaL_\(i)@2x"
-            playerFrames.append(amoebaLaranjaAtlas.textureNamed(nameA))
+            orangeFrames.append(amoebaLaranjaAtlas.textureNamed(nameA))
             
         }
         
         for (var i = numImages - 1; i >= 0; i--){
             let nameA = "amoebaL_\(i)@2x"
-            playerFrames.append(amoebaLaranjaAtlas.textureNamed(nameA))
+            orangeFrames.append(amoebaLaranjaAtlas.textureNamed(nameA))
         }
         
         scoreLabel.fontColor = UIColor.orangeColor()
         player.name = "orange"
-        player.runAction( SKAction.repeatActionForever(SKAction.animateWithTextures(playerFrames, timePerFrame: 0.005, resize: true, restore: false)), withKey:"playerLaranja")
-    }
+        player.runAction( SKAction.repeatActionForever(SKAction.animateWithTextures(orangeFrames, timePerFrame: 0.005, resize: true, restore: false)), withKey:"playerLaranja")
+        
+
+        
+}
+    
+    func runOrangeAnimation(){
+            }
     
     func createGreenAnimation(){
         let amoebaVerdeAtlas = SKTextureAtlas(named: "amoebaVerde")
@@ -370,6 +380,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.xScale = 0.4
         player.yScale = 0.4
         self.addChild(player)
+        
+        createOrangeAnimation()
         
         
         btnBlue = SKSpriteNode(imageNamed: "Azul")
