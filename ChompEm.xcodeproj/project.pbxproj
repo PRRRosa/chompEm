@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		903740521B4C2EB50043A033 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 903740511B4C2EB50043A033 /* GameKit.framework */; };
+		9037405D1B4D9BB00043A033 /* ChompEm_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9037405C1B4D9BB00043A033 /* ChompEm_Tests.swift */; };
 		D46CDD1C1B4AE8B10085E403 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46CDD1B1B4AE8B10085E403 /* AppDelegate.swift */; };
 		D46CDD1E1B4AE8B10085E403 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D46CDD1D1B4AE8B10085E403 /* GameScene.sks */; };
 		D46CDD201B4AE8B10085E403 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46CDD1F1B4AE8B10085E403 /* GameScene.swift */; };
@@ -45,6 +46,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+
+		9037405E1B4D9BB00043A033 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D46CDD0E1B4AE8B10085E403 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D46CDD151B4AE8B10085E403;
+			remoteInfo = ChompEm;
+		};
 		D46CDD801B4AFF0A0085E403 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D46CDD0E1B4AE8B10085E403 /* Project object */;
@@ -77,6 +86,9 @@
 
 /* Begin PBXFileReference section */
 		903740511B4C2EB50043A033 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		903740581B4D9BB00043A033 /* ChompEm Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ChompEm Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9037405B1B4D9BB00043A033 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9037405C1B4D9BB00043A033 /* ChompEm_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChompEm_Tests.swift; sourceTree = "<group>"; };
 		D46CDD161B4AE8B10085E403 /* ChompEm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChompEm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D46CDD1A1B4AE8B10085E403 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D46CDD1B1B4AE8B10085E403 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +134,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		903740551B4D9BB00043A033 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+
 		D46CDD131B4AE8B10085E403 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -140,6 +160,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		903740591B4D9BB00043A033 /* ChompEm Tests */ = {
+			isa = PBXGroup;
+			children = (
+				9037405C1B4D9BB00043A033 /* ChompEm_Tests.swift */,
+				9037405A1B4D9BB00043A033 /* Supporting Files */,
+			);
+			path = "ChompEm Tests";
+			sourceTree = "<group>";
+		};
+		9037405A1B4D9BB00043A033 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9037405B1B4D9BB00043A033 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		D46CDD0D1B4AE8B10085E403 = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +187,7 @@
 				D46CDD321B4AE8B10085E403 /* ChompEmTests */,
 				D46CDD701B4AFF090085E403 /* ChompEm WatchKit Extension */,
 				D46CDD821B4AFF0A0085E403 /* ChompEm WatchKit App */,
+				903740591B4D9BB00043A033 /* ChompEm Tests */,
 				D46CDD171B4AE8B10085E403 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -160,6 +198,7 @@
 				D46CDD161B4AE8B10085E403 /* ChompEm.app */,
 				D46CDD6F1B4AFF090085E403 /* ChompEm WatchKit Extension.appex */,
 				D46CDD7E1B4AFF0A0085E403 /* ChompEm WatchKit App.app */,
+				903740581B4D9BB00043A033 /* ChompEm Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -280,6 +319,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		903740571B4D9BB00043A033 /* ChompEm Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 903740601B4D9BB00043A033 /* Build configuration list for PBXNativeTarget "ChompEm Tests" */;
+			buildPhases = (
+				903740541B4D9BB00043A033 /* Sources */,
+				903740551B4D9BB00043A033 /* Frameworks */,
+				903740561B4D9BB00043A033 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9037405F1B4D9BB00043A033 /* PBXTargetDependency */,
+			);
+			name = "ChompEm Tests";
+			productName = "ChompEm Tests";
+			productReference = 903740581B4D9BB00043A033 /* ChompEm Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D46CDD151B4AE8B10085E403 /* ChompEm */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D46CDD391B4AE8B10085E403 /* Build configuration list for PBXNativeTarget "ChompEm" */;
@@ -341,9 +398,13 @@
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Paulo Ricardo Ramos da Rosa";
 				TargetAttributes = {
+					903740571B4D9BB00043A033 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = D46CDD151B4AE8B10085E403;
+					};
 					D46CDD151B4AE8B10085E403 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 7UUT6QRU26;
+						DevelopmentTeam = 9468LRW88W;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 1;
@@ -376,11 +437,19 @@
 				D46CDD151B4AE8B10085E403 /* ChompEm */,
 				D46CDD6E1B4AFF090085E403 /* ChompEm WatchKit Extension */,
 				D46CDD7D1B4AFF0A0085E403 /* ChompEm WatchKit App */,
+				903740571B4D9BB00043A033 /* ChompEm Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		903740561B4D9BB00043A033 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D46CDD141B4AE8B10085E403 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -428,6 +497,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		903740541B4D9BB00043A033 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9037405D1B4D9BB00043A033 /* ChompEm_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D46CDD121B4AE8B10085E403 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -455,6 +532,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+
+		9037405F1B4D9BB00043A033 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D46CDD151B4AE8B10085E403 /* ChompEm */;
+			targetProxy = 9037405E1B4D9BB00043A033 /* PBXContainerItemProxy */;
+		};
 		D46CDD811B4AFF0A0085E403 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D46CDD7D1B4AFF0A0085E403 /* ChompEm WatchKit App */;
@@ -479,6 +562,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		903740611B4D9BB00043A033 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ChompEm Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChompEm.app/ChompEm";
+			};
+			name = Debug;
+		};
+		903740621B4D9BB00043A033 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ChompEm Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChompEm.app/ChompEm";
+			};
+			name = Release;
+		};
 		D46CDD371B4AE8B10085E403 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -656,6 +773,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		903740601B4D9BB00043A033 /* Build configuration list for PBXNativeTarget "ChompEm Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				903740611B4D9BB00043A033 /* Debug */,
+				903740621B4D9BB00043A033 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		D46CDD111B4AE8B10085E403 /* Build configuration list for PBXProject "ChompEm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
