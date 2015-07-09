@@ -1,4 +1,4 @@
-//
+////
 //  GameOverScene.swift
 //  amoebaProject
 //
@@ -18,7 +18,7 @@ class GameOverScene: SKScene {
     
     var mainView: UIView?
     
-    var colorType: Int = 0
+    var colorType: Int!
     
     override init(size: CGSize) {
         
@@ -57,6 +57,8 @@ class GameOverScene: SKScene {
         player = SKSpriteNode(imageNamed: "amoebaV_00")
         player.position  = CGPointMake(self.frame.size.width/2, menu.position.y + 150)
         player.zPosition += 1
+        colorType = NSUserDefaults.standardUserDefaults().integerForKey("color")
+        
         if (colorType == 0){
             createPurpleHitAnimation()
         } else if (colorType == 1){

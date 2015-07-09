@@ -50,7 +50,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var greenMounthFrames = [SKTexture]()
     var purpleMounthFrames = [SKTexture]()
 
-
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -600,11 +599,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let group = SKAction.group([fall,rotate])
         actionArray.addObject(group)
         
-        let loseAction = SKAction.runBlock() {
-            let reveal = SKTransition.flipVerticalWithDuration(0.5)
-            let gameOverScene = GameOverScene(size: self.size)
-            self.view?.presentScene(gameOverScene, transition: reveal)
-        }
+//        let loseAction = SKAction.runBlock() {
+//            let reveal = SKTransition.flipVerticalWithDuration(0.5)
+//            let gameOverScene = GameOverScene(size: self.size)
+//            self.view?.presentScene(gameOverScene, transition: reveal)
+//        }
         
         //actionArray.addObject(loseAction)
         alien.runAction(SKAction.sequence(actionArray as [AnyObject]))
@@ -787,15 +786,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         let reveal = SKTransition.flipVerticalWithDuration(0.5)
-        let gameOverScene = GameOverScene(size: self.size)
-        if (player.name == "purple"){
-            gameOverScene.colorType = 0
-        }else if (player.name == "orange"){
-            gameOverScene.colorType = 1
-        }else {
-            gameOverScene.colorType = 2
+        if (player.name! == "purple"){
+            NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "color")
+        }else if (player.name! == "orange"){
+            NSUserDefaults.standardUserDefaults().setInteger(1, forKey: "color")
+        }else if (player.name! == "green"){
+            NSUserDefaults.standardUserDefaults().setInteger(2, forKey: "color")
         }
-        
+        let gameOverScene = GameOverScene(size: self.size)
+        NSUserDefaults.standardUserDefaults().synchronize()
         self.view?.presentScene(gameOverScene, transition: reveal)
     }
 }
