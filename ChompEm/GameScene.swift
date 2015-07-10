@@ -753,7 +753,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func gameOver(){
         
         if let savedScore: NSInteger = NSUserDefaults.standardUserDefaults().objectForKey("HighestScore") as? NSInteger{
-            
             if savedScore < score{
                 NSUserDefaults.standardUserDefaults().setObject(score, forKey:"HighestScore")
                 NSUserDefaults.standardUserDefaults().synchronize()
@@ -762,13 +761,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if (game.playerIsAuthenticated){
                     var leaderboardScore = GKScore(leaderboardIdentifier: "chompEm.highscores")
                     leaderboardScore.value = Int64(score)
-                    GKScore.reportScores([leaderboardScore], withCompletionHandler: {(error) -> Void in
+                    GKScore.reportScores([leaderboardScore], withCompletionHandler: {(error: NSError!) -> Void in
                         let alert = UIAlertView(title: "Success", message: "Score updated", delegate: self, cancelButtonTitle: "Ok")
-                        alert.show()
+                        //alert.show()
+                    })
+                    
+                }
+            } else{
+                NSUserDefaults.standardUserDefaults().setObject(savedScore, forKey:"HighestScore")
+                NSUserDefaults.standardUserDefaults().synchronize()
+                //inserir score no gameCenter
+                var game: GameViewController = self.view?.window?.rootViewController as! GameViewController
+                if (game.playerIsAuthenticated){
+                    var leaderboardScore = GKScore(leaderboardIdentifier: "chompEm.highscores")
+                    leaderboardScore.value = Int64(savedScore)
+                    GKScore.reportScores([leaderboardScore], withCompletionHandler: {(error: NSError!) -> Void in
+                        let alert = UIAlertView(title: "Success", message: "Score updated", delegate: self, cancelButtonTitle: "Ok")
+                        //alert.show()
                     })
                     
                 }
             }
+            
         }else{
             var highestScore: NSInteger = score
             NSUserDefaults.standardUserDefaults().setObject(highestScore, forKey:"HighestScore")
@@ -778,9 +792,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if (game.playerIsAuthenticated){
                 var leaderboardScore = GKScore(leaderboardIdentifier: "chompEm.highscores")
                 leaderboardScore.value = Int64(highestScore)
-                GKScore.reportScores([leaderboardScore], withCompletionHandler: {(error) -> Void in
+                GKScore.reportScores([leaderboardScore], withCompletionHandler: {(error: NSError!) -> Void in
                     let alert = UIAlertView(title: "Success", message: "Score updated", delegate: self, cancelButtonTitle: "Ok")
-                    alert.show()
+                    //alert.show()
                 })
                 
             }
