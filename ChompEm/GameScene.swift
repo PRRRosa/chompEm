@@ -632,34 +632,44 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let random = Int(arc4random_uniform(2))
         
         if(player.name == "purple"){
-            if (random == 0){
-                player.runAction(SKAction.sequence([runPurpleMounth(),runOrangeAnimation()]))
-                //player.runAction(runOrangeAnimation())
-                
-            }else if (random == 1){
-                //player.runAction(runGreenAnimation())
-                 player.runAction(SKAction.sequence([runPurpleMounth(),runGreenAnimation()]))
-                
+            
+            switch random{
+                case 0:
+                    player.runAction(SKAction.sequence([runPurpleMounth(),runOrangeAnimation()]))
+                case 1:
+                    player.runAction(SKAction.sequence([runPurpleMounth(),runGreenAnimation()]))
+                default:
+                    println()
             }
+            
             
         }
         else if(player.name == "green"){
-                if (random == 0){
-                    player.runAction(SKAction.sequence([runGreenMounth(),runPurpleAnimation()]))
-                }else if (random == 1){
-                    player.runAction(SKAction.sequence([runGreenMounth(),runOrangeAnimation()]))
+            
+                switch random{
+                    case 0:
+                        player.runAction(SKAction.sequence([runGreenMounth(),runPurpleAnimation()]))
+                    case 1:
+                        player.runAction(SKAction.sequence([runGreenMounth(),runOrangeAnimation()]))
+
+                    default:
+                        println()
                 }
-                
+
             }
             else if(player.name == "orange"){
-                    if (random == 0){
-                        player.runAction(SKAction.sequence([runOrangeMounth(),runPurpleAnimation()]))
-
-                    }else if (random == 1){
-                        player.runAction(SKAction.sequence([runOrangeMounth(),runGreenAnimation()]))
-                    }
-                    
+            
+                switch random{
+                case 0:
+                    player.runAction(SKAction.sequence([runOrangeMounth(),runPurpleAnimation()]))
+                case 1:
+                    player.runAction(SKAction.sequence([runOrangeMounth(),runGreenAnimation()]))
+                
+                default:
+                    println()
                 }
+                    
+            }
             
     }
         
