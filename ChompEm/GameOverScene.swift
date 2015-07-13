@@ -43,7 +43,7 @@ class GameOverScene: SKScene {
         backgroundImg.size = CGSize(width: self.frame.size.width, height: self.frame.size.height)
         
         let gameOverImg = SKSpriteNode(imageNamed: "GameOVer")
-        gameOverImg.position = CGPointMake(self.frame.size.width/2, self.frame.size.height * 0.7)
+        gameOverImg.position = CGPointMake(self.frame.size.width/2, self.frame.size.height * 0.75)
         
         
         let retryImg = SKSpriteNode(imageNamed: "againbutton-1")
@@ -54,19 +54,29 @@ class GameOverScene: SKScene {
         menu.position = CGPointMake(self.frame.size.width/2-75, self.frame.size.height/9)
         menu.name = "menu"
         
-        player = SKSpriteNode(imageNamed: "amoebaV_00")
-        player.position  = CGPointMake(self.frame.size.width/2, menu.position.y + 150)
-        player.zPosition += 1
+        points = NSUserDefaults.standardUserDefaults().integerForKey("yourScore")
+        pointsLabel = SKLabelNode(fontNamed: "Marker Felt")
+        pointsLabel.text = String(format: "%05d", arguments: [points])
+        pointsLabel.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2)
+        
+        
+        player = SKSpriteNode(imageNamed: "AmoebaVermelha")
+        player.position  = CGPointMake(self.frame.size.width/2, self.frame.size.height/3 * 0.95)
+        player.xScale = 0.8
+        player.yScale = 0.8
         colorType = NSUserDefaults.standardUserDefaults().integerForKey("color")
         
         if (colorType == 0){
             createPurpleHitAnimation()
+            pointsLabel.fontColor = UIColor.purpleColor()
         } else if (colorType == 1){
             createOrangeHitAnimation()
+            pointsLabel.fontColor = UIColor.orangeColor()
         }else {
             createGreenHitAnimation()
+            pointsLabel.fontColor = UIColor.greenColor()
         }
-
+        
         
 //        againButton = SKSpriteNode(imageNamed:"againButton")
 //        againButton.position = CGPoint(x:CGRectGetMidX(self.frame), y:self.frame.size.height/2);
@@ -76,7 +86,7 @@ class GameOverScene: SKScene {
         self.addChild(retryImg)
         self.addChild(menu)
         self.addChild(player)
-
+        self.addChild(pointsLabel)
         
         
         
