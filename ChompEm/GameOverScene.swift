@@ -8,7 +8,7 @@
 
 import Foundation
 import SpriteKit
- 
+
 class GameOverScene: SKScene {
     
     var againButton: SKNode! = nil
@@ -19,6 +19,9 @@ class GameOverScene: SKScene {
     var mainView: UIView?
     
     var colorType: Int!
+    
+    var pointsLabel: SKLabelNode = SKLabelNode()
+    var points: NSInteger = 0
     
     override init(size: CGSize) {
         
@@ -78,8 +81,8 @@ class GameOverScene: SKScene {
         }
         
         
-//        againButton = SKSpriteNode(imageNamed:"againButton")
-//        againButton.position = CGPoint(x:CGRectGetMidX(self.frame), y:self.frame.size.height/2);
+        //        againButton = SKSpriteNode(imageNamed:"againButton")
+        //        againButton.position = CGPoint(x:CGRectGetMidX(self.frame), y:self.frame.size.height/2);
         
         self.addChild(backgroundImg)
         self.addChild(gameOverImg)
@@ -91,9 +94,9 @@ class GameOverScene: SKScene {
         
         
         
-
-//        self.addChild(againButton)
-    
+        
+        //        self.addChild(againButton)
+        
         
         // 4
         //runAction(SKAction.sequence([
@@ -105,12 +108,12 @@ class GameOverScene: SKScene {
         //        self.view?.presentScene(scene, transition:reveal)
         //    }
         //    ]))
-
+        
         
         let rotate = SKAction.rotateByAngle(-3.2, duration: 3)
         let repeat = SKAction.repeatActionForever(rotate)
         retryImg.runAction(repeat)
-       
+        
         
     }
     
@@ -171,30 +174,30 @@ class GameOverScene: SKScene {
             let location = touch.locationInNode(self)
             let nodeColor = self.nodeAtPoint(location)
             
-                if let name = nodeColor.name{
-                    if(name == "retry"){
-                        let reveal = SKTransition.moveInWithDirection(SKTransitionDirection.Left, duration: 0.0)
-                        let scene = GameScene(size: size)
-                        self.view?.presentScene(scene, transition:reveal)
-                    }
-                    else if (name == "menu")
-                    {
-                        
-                        mainView = self.view
-                        let skView = mainView as! SKView
-                        
-                        let gameScene = MenuScene(size: skView.bounds.size)
-                        gameScene.scaleMode = SKSceneScaleMode.AspectFill
-                        gameScene.registerView(mainView!)
-                        skView.presentScene(gameScene)
-                        
-                        //self.removeFromParent()
-                        //let reveal = SKTransition.moveInWithDirection(SKTransitionDirection.Left, duration: 0.0)
-                        //let scene = MenuScene(size: size)
-                        //self.view?.presentScene(scene, transition:reveal)
-                    }
+            if let name = nodeColor.name{
+                if(name == "retry"){
+                    let reveal = SKTransition.moveInWithDirection(SKTransitionDirection.Left, duration: 0.0)
+                    let scene = GameScene(size: size)
+                    self.view?.presentScene(scene, transition:reveal)
                 }
-
+                else if (name == "menu")
+                {
+                    
+                    mainView = self.view
+                    let skView = mainView as! SKView
+                    
+                    let gameScene = MenuScene(size: skView.bounds.size)
+                    gameScene.scaleMode = SKSceneScaleMode.AspectFill
+                    gameScene.registerView(mainView!)
+                    skView.presentScene(gameScene)
+                    
+                    //self.removeFromParent()
+                    //let reveal = SKTransition.moveInWithDirection(SKTransitionDirection.Left, duration: 0.0)
+                    //let scene = MenuScene(size: size)
+                    //self.view?.presentScene(scene, transition:reveal)
+                }
+            }
+            
         }
     }
     
