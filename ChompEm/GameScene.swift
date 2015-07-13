@@ -752,6 +752,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func gameOver(){
         
+        NSUserDefaults.standardUserDefaults().setInteger(score, forKey: "yourScore")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
         if let savedScore: NSInteger = NSUserDefaults.standardUserDefaults().objectForKey("HighestScore") as? NSInteger{
             if savedScore < score{
                 NSUserDefaults.standardUserDefaults().setObject(score, forKey:"HighestScore")
