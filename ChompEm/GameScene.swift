@@ -49,6 +49,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var orangeMounthFrames = [SKTexture]()
     var greenMounthFrames = [SKTexture]()
     var purpleMounthFrames = [SKTexture]()
+    var purpleHitFrames = [SKTexture]()
+    var greenHitFrames = [SKTexture]()
+    var orangeHitFrames = [SKTexture]()
 
     
     override func didMoveToView(view: SKView) {
@@ -256,52 +259,54 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func createPurpleHitAnimation(){
         let playerAnimatedAtlas = SKTextureAtlas(named: "amoebaVioletaHit")
-        var playerFrames = [SKTexture]()
         
         let numImages = playerAnimatedAtlas.textureNames.count
         for (var i = 0; i < numImages; i++) {
             let nameA = "amebaMortaRoxa_\(i)"
-            playerFrames.append(playerAnimatedAtlas.textureNamed(nameA))
+            purpleHitFrames.append(playerAnimatedAtlas.textureNamed(nameA))
             
         }
         
         
-        //playerMouthAnimation = mouthFrames
-        player.runAction((SKAction.animateWithTextures(playerFrames, timePerFrame: 0.01, resize: true, restore: true)), withKey:"purpleHit")
+    }
+    
+    func runPurpleHit()->SKAction{
+        return (SKAction.animateWithTextures(purpleHitFrames, timePerFrame: 0.01, resize: true, restore: true))
     }
     
     func createGreenHitAnimation(){
         let playerAnimatedAtlas = SKTextureAtlas(named: "amoebaVerdeHit")
-        var playerFrames = [SKTexture]()
         
         let numImages = playerAnimatedAtlas.textureNames.count
         for (var i = 0; i < numImages; i++) {
             let nameA = "amebaMortaVerde_\(i)"
-            playerFrames.append(playerAnimatedAtlas.textureNamed(nameA))
+            greenHitFrames.append(playerAnimatedAtlas.textureNamed(nameA))
             
         }
         
         
-        //playerMouthAnimation = mouthFrames
-        player.runAction((SKAction.animateWithTextures(playerFrames, timePerFrame: 0.01, resize: true, restore: true)), withKey:"greenHit")
+    }
+    
+    func runGreenHit()->SKAction{
+       return (SKAction.animateWithTextures(greenHitFrames, timePerFrame: 0.01, resize: true, restore: true))
     }
     
     func createOrangeHitAnimation(){
         let playerAnimatedAtlas = SKTextureAtlas(named: "amoebaLaranjaHit")
-        var playerFrames = [SKTexture]()
         
         let numImages = playerAnimatedAtlas.textureNames.count
         for (var i = 0; i < numImages; i++) {
             let nameA = "amebaMortaLaranja_\(i)"
-            playerFrames.append(playerAnimatedAtlas.textureNamed(nameA))
+            orangeHitFrames.append(playerAnimatedAtlas.textureNamed(nameA))
             
         }
         
         
-        //playerMouthAnimation = mouthFrames
-        player.runAction((SKAction.animateWithTextures(playerFrames, timePerFrame: 0.01, resize: true, restore: true)), withKey:"orangeHit")
     }
     
+    func runOrangeHit()->SKAction{
+        return (SKAction.animateWithTextures(orangeHitFrames, timePerFrame: 0.01, resize: true, restore: true))
+    }
     
     
     func createGreenMouthOpeningAnimation(){
@@ -383,6 +388,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         createGreenMouthOpeningAnimation()
         createOrangeMouthOpeningAnimation()
         createPurpleMouthOpeningAnimation()
+        createPurpleHitAnimation()
+        createGreenHitAnimation()
+        createOrangeHitAnimation()
         player = SKSpriteNode(imageNamed: "AmoebaVermelha")
         randomisePlayerInit()
         
@@ -463,18 +471,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             eatCount()
         }else {
             if (projectile.name == "purple"){
-                createPurpleHitAnimation()
+                player.runAction(runPurpleHit())
                 monster.removeFromParent()
                 life--
                 perdeVida()
                 
             }else if (projectile.name == "green"){
-                createGreenHitAnimation()
+                player.runAction(runGreenHit())
                 monster.removeFromParent()
                 life--
                 perdeVida()
             }else {
-                createOrangeHitAnimation()
+                player.runAction(runOrangeHit())
                 monster.removeFromParent()
                 life--
                 perdeVida()
