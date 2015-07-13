@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ChompEm/GameViewController.swift"
+            timestampString = "458247383.820302"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "GameViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ChompEm.GameViewController.playerIsAuthenticated.getter : Swift.Bool"
+                  moduleName = "ChompEm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paulorrr/Desktop/chompEm/ChompEm/ChompEm/GameViewController.swift"
+                  timestampString = "458247383.85793"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ChompEm.GameViewController.playerIsAuthenticated.setter : Swift.Bool"
+                  moduleName = "ChompEm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paulorrr/Desktop/chompEm/ChompEm/ChompEm/GameViewController.swift"
+                  timestampString = "458247383.859745"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ChompEm.GameViewController.playerIsAuthenticated.materializeForSet : Swift.Bool"
+                  moduleName = "ChompEm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paulorrr/Desktop/chompEm/ChompEm/ChompEm/GameViewController.swift"
+                  timestampString = "458247383.85998"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ChompEm.GameViewController.init (ChompEm.GameViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;ObjectiveC.NSBundle&gt;) -&gt; ChompEm.GameViewController"
+                  moduleName = "ChompEm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paulorrr/Desktop/chompEm/ChompEm/ChompEm/GameViewController.swift"
+                  timestampString = "458247383.860082"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ChompEm.GameViewController.init (ChompEm.GameViewController.Type)(coder : ObjectiveC.NSCoder) -&gt; ChompEm.GameViewController"
+                  moduleName = "ChompEm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paulorrr/Desktop/chompEm/ChompEm/ChompEm/GameViewController.swift"
+                  timestampString = "458247383.860186"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

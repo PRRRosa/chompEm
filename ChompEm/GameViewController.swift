@@ -28,7 +28,7 @@ extension SKNode {
 
 class GameViewController: UIViewController, GKGameCenterControllerDelegate {
 
-    var playerIsAuthenticated = false
+    var playerIsAuthenticated = Bool()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,10 +86,10 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate {
         localPlayer.authenticateHandler = {(viewController : UIViewController!, error : NSError!) -> Void in
             if ((viewController) != nil) {
                 self.presentViewController(viewController, animated: true, completion: nil)
-                self.playerIsAuthenticated = true
+                self.playerIsAuthenticated = false
             }else {
                 println((GKLocalPlayer.localPlayer().authenticated))
-                self.playerIsAuthenticated = false
+                self.playerIsAuthenticated = true
             }
         }
     }
@@ -117,7 +117,7 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate {
     
 
     override func shouldAutorotate() -> Bool {
-        return true
+        return false
     }
 
     override func supportedInterfaceOrientations() -> Int {
